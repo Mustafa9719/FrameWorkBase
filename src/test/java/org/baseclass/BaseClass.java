@@ -26,12 +26,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	public WebDriver driver;
+	public BaseClass() {
+		PageFactory.initElements(driver, this);
+	}
+
+	public static WebDriver driver;
+
 	public void alertSendKeys(String value) {
 		Alert alert = driver.switchTo().alert();
 
@@ -54,7 +60,7 @@ public class BaseClass {
 		alert.accept();
 	}
 
-	public void driverChromeWebDriver() {
+	public static void driverChromeWebDriver() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 	}
@@ -73,7 +79,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 	}
 
-	public void loadUrl(String url) {
+	public static void loadUrl(String url) {
 		driver.get(url);
 	}
 
@@ -141,7 +147,7 @@ public class BaseClass {
 		return attribute;
 	}
 
-	public void allWinClose() {
+	public static void allWinClose() {
 		driver.quit();
 	}
 
@@ -340,7 +346,7 @@ public class BaseClass {
 
 	public String readValueFromExcel(String sheetName, int rownum, int cellnum) throws IOException {
 		String res = null;
-		File file = new File("C:\\Users\\Mustafa\\eclipse-workspace\\FrameworkClass\\Excel\\AdactinHotelbooking.xlsx");
+		File file = new File("C:\\Users\\Mustafa\\Downloads\\FrameworkClassBase\\Excel\\AdactinHotelbooking.xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetName);
