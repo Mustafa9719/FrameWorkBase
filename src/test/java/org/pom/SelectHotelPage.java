@@ -9,13 +9,19 @@ public class SelectHotelPage extends BaseClass{
 	public SelectHotelPage() {
 PageFactory.initElements(driver, this);
 	}
-	@FindBy(id="Submit")
+	@FindBy(id="radiobutton_0")
 	private WebElement btnRadio;
 	public WebElement getBtnRadio() {
 		return btnRadio;
 	}
+	@FindBy(id="continue")
+	private WebElement btnContinue;
+	public WebElement getBtnContinue() {
+		return btnContinue;
+	}
 	public void selectHotel() {
 		elementClick(getBtnRadio());
+		elementClick(getBtnContinue());
 	}
 
 }

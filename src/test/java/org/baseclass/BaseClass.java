@@ -333,7 +333,7 @@ public class BaseClass {
 	}
 
 	public void insertDataIncell(String sheetname, int rownum, int cellnum, String data) throws IOException {
-		File file = new File("C:\\Users\\Mustafa\\eclipse-workspace\\FrameworkClass\\Excel\\AdactinHotelbooking.xlsx");
+		File file = new File("C:\\Users\\Mustafa\\Downloads\\FrameworkClassBase\\Excel\\AdactinHotelbooking.xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetname);
